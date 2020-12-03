@@ -1,5 +1,6 @@
 import pandas as pd
 import pylab
+import matplotlib.pyplot as plt
 
 # TASK 1
 print('\nЗадание 1\n')
@@ -53,24 +54,31 @@ try:
     print('\nTop5 с минимальным числом смертей\n', top5MinDead)
 
     # TASK 6
-    pylab.subplot(2, 3, 1)
-    pylab.title('Top5 c максимальным числом заболевших')
-    pylab.bar(top5MaxSick['Region'], top5MaxSick['Sick'])
-    pylab.subplot(2, 3, 2)
-    pylab.title('Top5 с максимальным числом выздоровевших')
-    pylab.bar(top5MaxRecovered['Region'], top5MaxRecovered['Recovered'])
-    pylab.subplot(2, 3, 3)
-    pylab.title('Top5 с максимальным числом смертей')
-    pylab.bar(top5MaxDead['Region'], top5MaxDead['Dead'])
-    pylab.subplot(2, 3, 4)
-    pylab.title('Top5 c минимальным числом заболевших')
-    pylab.bar(top5MinSick['Region'], top5MinSick['Sick'])
-    pylab.subplot(2, 3, 5)
-    pylab.title('Top5 с минимальным числом выздоровевших')
-    pylab.bar(top5MinRecovered['Region'], top5MinRecovered['Recovered'])
-    pylab.subplot(2, 3, 6)
-    pylab.title('Top5 с минимальным числом смертей')
-    pylab.bar(top5MinDead['Region'], top5MinDead['Dead'])
+
+    pylab.subplot(6, 1, 1)
+    pylab.title('Top-5 c максимальным числом заболевших', fontsize=8)
+    pylab.barh(top5MaxSick['Region'], top5MaxSick['Sick'], color='red')
+    plt.tick_params(axis='both', which='major', labelsize=5)
+    pylab.subplot(6, 1, 2)
+    pylab.title('Top-5 с максимальным числом выздоровевших', fontsize=8)
+    pylab.barh(top5MaxRecovered['Region'], top5MaxRecovered['Recovered'], color='blue')
+    plt.tick_params(axis='both', which='major', labelsize=5)
+    pylab.subplot(6, 1, 3)
+    pylab.title('Top-5 с максимальным числом смертей', fontsize=8)
+    pylab.barh(top5MaxDead['Region'], top5MaxDead['Dead'], color='green')
+    plt.tick_params(axis='both', which='major', labelsize=5)
+    pylab.subplot(6, 1, 4)
+    pylab.title('Top-5 c минимальным числом заболевших', fontsize=8)
+    pylab.barh(top5MinSick['Region'], top5MinSick['Sick'], color='yellow')
+    plt.tick_params(axis='both', which='major', labelsize=5)
+    pylab.subplot(6, 1, 5)
+    pylab.title('Top-5 с минимальным числом выздоровевших', fontsize=8)
+    pylab.barh(top5MinRecovered['Region'], top5MinRecovered['Recovered'], color='black')
+    plt.tick_params(axis='both', which='major', labelsize=5)
+    pylab.subplot(6, 1, 6)
+    pylab.title('Top-5 с минимальным числом смертей', fontsize=8)
+    pylab.barh(top5MinDead['Region'], top5MinDead['Dead'], color='orange')
+    plt.tick_params(axis='both', which='major', labelsize=5)
     pylab.show()
 
 except FileNotFoundError:
